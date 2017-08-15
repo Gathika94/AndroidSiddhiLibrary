@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'me.champeau.gradle.antlr4'
+
+antlr4 {
+    extraArgs=['-package', 'org.wso2.siddhi.query.compiler']
+    output=project.file("src/main/java/org/wso2/siddhi/query/compiler")
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile "org.apache.log4j.wso2:log4j:1.2.17.wso2v1"
+    testCompile "junit:junit:4.12"
+    compile "org.mvel:mvel2:2.2.1.Final"
+    compile "org.antlr:antlr4-runtime:4.5.1"
+    compile "org.wso2.orbit.com.lmax:disruptor:3.3.2.wso2v2"
+    compile "com.google.guava:guava:19.0"
+    compile "com.google.code.gson:gson:2.8.0"
+    compile "org.atteo.classindex:classindex:3.4"
+    compile "io.dropwizard.metrics:metrics-core:3.1.0"
+    compile "org.quartz-scheduler.wso2:quartz:2.1.1.wso2v1"
+    compile "org.slf4j:slf4j-simple:1.7.12"
+    compile "org.osgi:org.osgi.core:6.0.0"
+    compile "org.eclipse.osgi:org.eclipse.osgi.services:3.3.100.v20120522-1822"
+    compile "com.jayway.jsonpath:json-path:2.2.0"
+    compile "org.wso2.msf4j:msf4j-all:2.1.1"
+    compile "javax.servlet:servlet-api:2.5"
+    compile "com.fasterxml.jackson.datatype:jackson-datatype-joda:2.4.1"
+    compile "com.zaxxer:HikariCP:2.6.3"
+    compile "org.apache.maven:maven-core:3.3.9"
+    compile "org.apache.maven:maven-plugin-api:3.0.5"
+    compile "org.apache.maven.plugin-tools:maven-plugin-annotations:3.4"
+    compile "org.freemarker:freemarker-gae:2.3.25-incubating"
+    compile "org.apache.commons:commons-io:1.3.2"
+    compile "org.yaml:snakeyaml:1.18"
+}
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
